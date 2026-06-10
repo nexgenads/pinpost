@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions — Pinpost</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #6C3BD5; --purple-light: #F0EAFF; --navy: #1A1035;
+    --gray-50: #F9F8FF; --gray-400: #9CA3AF; --gray-600: #4B5563; --gray-800: #1F2937;
+    --font: 'Inter', sans-serif;
+  }
+  body { font-family: var(--font); color: var(--gray-800); background: #fff; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid #E5E7EB; padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-icon { width: 34px; height: 34px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; font-size: 15px; }
+  .logo-text { font-size: 19px; font-weight: 800; color: var(--navy); }
+  .nav-right { display: flex; gap: 12px; }
+  .btn-sm { padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; }
+  .btn-outline { border: 1.5px solid var(--purple); color: var(--purple); }
+  .btn-filled { background: var(--purple); color: #fff; }
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 64px 24px 120px; }
+  .page-hero { margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid #E5E7EB; }
+  .page-label { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+  .page-title { font-size: 40px; font-weight: 900; color: var(--navy); letter-spacing: -1px; margin-bottom: 16px; }
+  .page-meta { font-size: 14px; color: var(--gray-400); }
+  .page-meta strong { color: var(--gray-600); }
+  .summary-box { background: var(--purple-light); border-left: 4px solid var(--purple); border-radius: 12px; padding: 28px 32px; margin-bottom: 48px; }
+  .summary-box h3 { font-size: 14px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .summary-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--gray-800); line-height: 1.6; }
+  .summary-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple); flex-shrink: 0; margin-top: 6px; }
+  .toc { background: var(--gray-50); border: 1px solid #E5E7EB; border-radius: 12px; padding: 28px 32px; margin-bottom: 56px; }
+  .toc h3 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .toc ol { padding-left: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; }
+  .toc li { font-size: 14px; padding: 2px 0; }
+  .toc a { color: var(--purple); text-decoration: none; font-weight: 500; }
+  .toc a:hover { text-decoration: underline; }
+  .section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  .section-num { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .section h2 { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 20px; letter-spacing: -0.3px; }
+  .section p { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 16px; }
+  .section ul, .section ol { padding-left: 20px; margin-bottom: 16px; }
+  .section li { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 6px; }
+  .section strong { color: var(--gray-800); font-weight: 600; }
+  .divider { height: 1px; background: #F3F4F6; margin-bottom: 56px; }
+  .info-card { background: var(--gray-50); border: 1px solid #E5E7EB; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
+  .info-card h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .info-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin: 0; }
+  .contact-box { background: var(--navy); border-radius: 16px; padding: 40px; text-align: center; margin-top: 64px; }
+  .contact-box h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+  .contact-box p { font-size: 15px; color: #9CA3AF; margin-bottom: 24px; }
+  .contact-box a { display: inline-block; background: var(--purple); color: #fff; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; }
+  footer { background: var(--navy); padding: 32px 5%; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 13px; color: #4B5563; }
+  .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-legal a { color: #6B7280; text-decoration: none; font-size: 13px; }
+  .footer-legal a:hover { color: #fff; }
+  .footer-legal a.active { color: #A78BFA; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo"><div class="logo-icon">P</div><span class="logo-text">Pinpost</span></a>
+  <div class="nav-right">
+    <a href="/login" class="btn-sm btn-outline">Sign in</a>
+    <a href="/signup" class="btn-sm btn-filled">Start Free</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title">Terms & Conditions</h1>
+    <p class="page-meta">Last updated: <strong>November 21, 2023</strong> &nbsp;·&nbsp; Please read these terms carefully before using Pinpost</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Key Points Summary</h3>
+    <div class="summary-grid">
+      <div class="summary-item"><div class="dot"></div>By using Pinpost, you agree to these terms.</div>
+      <div class="summary-item"><div class="dot"></div>You are responsible for the content you publish.</div>
+      <div class="summary-item"><div class="dot"></div>We may suspend accounts that violate these terms.</div>
+      <div class="summary-item"><div class="dot"></div>You can cancel your subscription at any time.</div>
+      <div class="summary-item"><div class="dot"></div>We own Pinpost. You own your content.</div>
+      <div class="summary-item"><div class="dot"></div>Contact us at <strong>info@pinpost.io</strong> for questions.</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#s1">Acceptance of terms</a></li>
+      <li><a href="#s2">Description of service</a></li>
+      <li><a href="#s3">Account registration</a></li>
+      <li><a href="#s4">Subscriptions & billing</a></li>
+      <li><a href="#s5">Acceptable use</a></li>
+      <li><a href="#s6">Your content</a></li>
+      <li><a href="#s7">Intellectual property</a></li>
+      <li><a href="#s8">Third-party platforms</a></li>
+      <li><a href="#s9">Disclaimer of warranties</a></li>
+      <li><a href="#s10">Limitation of liability</a></li>
+      <li><a href="#s11">Termination</a></li>
+      <li><a href="#s12">Changes to terms</a></li>
+      <li><a href="#s13">Governing law</a></li>
+      <li><a href="#s14">Contact us</a></li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <p>These Terms & Conditions ("Terms") govern your access to and use of Pinpost, operated by <strong>Appents LLC</strong>, 455 Market St Ste 1940, San Francisco, California 94105-2448, United States ("Company", "we", "us"). By creating an account or using Pinpost, you agree to be bound by these Terms.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Acceptance of terms</h2>
+    <p>By accessing or using Pinpost at pinpost.io, you confirm that you are at least 18 years old, have read and understood these Terms, and agree to be bound by them. If you are using Pinpost on behalf of a business or agency, you represent that you have the authority to bind that entity to these Terms.</p>
+    <p>If you do not agree with any part of these Terms, you must not use Pinpost.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Description of service</h2>
+    <p>Pinpost is a multi-platform social media scheduling and management tool that allows users to connect, schedule, publish, and analyze content across Facebook, Instagram, TikTok, YouTube, Google Business, and Pinterest from a single dashboard.</p>
+    <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time, with or without notice. We are not liable to you or any third party for any modification, suspension, or discontinuation of the Service.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Account registration</h2>
+    <ul>
+      <li>You must provide accurate, complete, and current information when creating your account.</li>
+      <li>You are responsible for maintaining the security of your account credentials.</li>
+      <li>You must notify us immediately at <strong>info@pinpost.io</strong> if you suspect unauthorized access to your account.</li>
+      <li>You may not share your account with others or create accounts on behalf of someone else without their permission.</li>
+      <li>We reserve the right to terminate accounts that contain false or misleading information.</li>
+    </ul>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Subscriptions & billing</h2>
+    <div class="info-card">
+      <h4>Free plan</h4>
+      <p>Available at no cost. Includes 1 brand, 50 posts per month, and up to 3 team members. No credit card required.</p>
+    </div>
+    <div class="info-card">
+      <h4>Pro plan — $29/month</h4>
+      <p>Up to 3 brands, 500 scheduled posts per brand per month, 10 team members, AI campaign planner, and full analytics. Billed monthly. Early adopter pricing guaranteed for 12 months.</p>
+    </div>
+    <div class="info-card">
+      <h4>Agency plan — $89/month</h4>
+      <p>Up to 10 brands, unlimited posts, 25 team members, advanced analytics, and priority support. Billed monthly.</p>
+    </div>
+    <p>All payments are processed securely by <strong>Stripe</strong>. By subscribing, you authorize us to charge your payment method on a recurring basis until you cancel. You may cancel at any time — see our <a href="/refund" style="color:var(--purple);">Refund Policy</a> for details.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Acceptable use</h2>
+    <p>You agree not to use Pinpost to:</p>
+    <ul>
+      <li>Publish content that is illegal, defamatory, abusive, hateful, or violates any third-party rights</li>
+      <li>Send spam, unsolicited messages, or engage in mass automated posting that violates platform policies</li>
+      <li>Violate the terms of service of any connected social media platform</li>
+      <li>Attempt to reverse-engineer, decompile, or disassemble any part of Pinpost</li>
+      <li>Use automated tools to scrape or extract data from Pinpost without our permission</li>
+      <li>Impersonate any person or entity or misrepresent your affiliation</li>
+      <li>Upload or transmit viruses or any malicious code</li>
+      <li>Engage in any activity that disrupts or interferes with Pinpost's servers or networks</li>
+    </ul>
+    <p>Violation of these rules may result in immediate suspension or termination of your account without refund.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Your content</h2>
+    <p>You retain full ownership of all content you create, upload, or publish through Pinpost ("Your Content"). By using Pinpost, you grant us a limited, non-exclusive, royalty-free license to store, process, and transmit Your Content solely for the purpose of providing the Service to you.</p>
+    <p>You are solely responsible for Your Content and for ensuring it does not violate any applicable laws or third-party rights. We do not review or endorse Your Content and are not liable for it.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Intellectual property</h2>
+    <p>Pinpost, including its name, logo, design, software, and all related technology, is owned by Appents LLC and protected by applicable intellectual property laws. Nothing in these Terms transfers any ownership rights in Pinpost to you.</p>
+    <p>You may not copy, reproduce, modify, distribute, or create derivative works from any part of Pinpost without our prior written permission.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Third-party platforms</h2>
+    <p>Pinpost connects to third-party social media platforms including Meta (Facebook & Instagram), TikTok, YouTube, Google Business, and Pinterest. Your use of these platforms is governed by their own terms of service and privacy policies, which are independent of ours.</p>
+    <p>We are not responsible for any changes to third-party APIs, platform policies, or features that may affect Pinpost's functionality. We will endeavor to maintain compatibility but cannot guarantee uninterrupted integration with all platforms.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Disclaimer of warranties</h2>
+    <p>Pinpost is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+    <p>We do not warrant that Pinpost will be uninterrupted, error-free, or free of viruses or other harmful components. You use Pinpost at your own risk.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Limitation of liability</h2>
+    <p>To the fullest extent permitted by law, Appents LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, arising from your use of or inability to use Pinpost.</p>
+    <p>Our total liability to you for any claim arising from these Terms or your use of Pinpost shall not exceed the amount you paid to us in the 3 months preceding the claim.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Termination</h2>
+    <p>You may terminate your account at any time by cancelling your subscription and deleting your account from Settings.</p>
+    <p>We reserve the right to suspend or terminate your account at any time, with or without notice, if we believe you have violated these Terms. Upon termination, your right to access and use Pinpost ceases immediately. Provisions of these Terms that by their nature should survive termination will remain in effect.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s12">
+    <div class="section-num">12</div>
+    <h2>Changes to terms</h2>
+    <p>We may update these Terms from time to time. When we make material changes, we will notify you by email or by displaying a notice within the Pinpost dashboard at least 7 days before the changes take effect.</p>
+    <p>Your continued use of Pinpost after the effective date of any changes constitutes your acceptance of the updated Terms.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s13">
+    <div class="section-num">13</div>
+    <h2>Governing law</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts located in San Francisco, California.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s14">
+    <div class="section-num">14</div>
+    <h2>Contact us</h2>
+    <p>If you have any questions about these Terms, please contact us:</p>
+    <div class="info-card">
+      <h4>Appents LLC — Pinpost</h4>
+      <p>455 Market St Ste 1940, San Francisco, California 94105-2448, United States<br>
+      Email: <strong>info@pinpost.io</strong><br>
+      Phone: <strong>+1 604 830 6709</strong></p>
+    </div>
+  </div>
+
+  <div class="contact-box">
+    <h3>Have a question about our terms?</h3>
+    <p>Our team typically responds within 1–2 business days.</p>
+    <a href="mailto:info@pinpost.io">Email info@pinpost.io</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Pinpost. An <a href="#" style="color:#9CA3AF;text-decoration:none;">Appents LLC</a> product.</p>
+    <div class="footer-legal">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms" class="active">Terms & Conditions</a>
+      <a href="/refund">Refund Policy</a>
+      <a href="/deletion">Deletion Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
