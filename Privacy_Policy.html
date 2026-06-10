@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Pinpost</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #6C3BD5;
+    --purple-light: #F0EAFF;
+    --navy: #1A1035;
+    --gray-50: #F9F8FF;
+    --gray-100: #F3F4F6;
+    --gray-400: #9CA3AF;
+    --gray-600: #4B5563;
+    --gray-800: #1F2937;
+    --font: 'Inter', sans-serif;
+  }
+  body { font-family: var(--font); color: var(--gray-800); background: #fff; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E5E7EB;
+    padding: 0 5%; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-icon { width: 34px; height: 34px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; font-size: 15px; }
+  .logo-text { font-size: 19px; font-weight: 800; color: var(--navy); }
+  .nav-right { display: flex; gap: 12px; align-items: center; }
+  .btn-sm { padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; }
+  .btn-outline { border: 1.5px solid var(--purple); color: var(--purple); }
+  .btn-filled { background: var(--purple); color: #fff; }
+
+  /* LAYOUT */
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 64px 24px 120px; }
+
+  /* HERO */
+  .page-hero { margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid #E5E7EB; }
+  .page-label { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+  .page-title { font-size: 40px; font-weight: 900; color: var(--navy); letter-spacing: -1px; margin-bottom: 16px; }
+  .page-meta { font-size: 14px; color: var(--gray-400); }
+  .page-meta strong { color: var(--gray-600); }
+
+  /* SUMMARY BOX */
+  .summary-box {
+    background: var(--purple-light); border-left: 4px solid var(--purple);
+    border-radius: 12px; padding: 28px 32px; margin-bottom: 48px;
+  }
+  .summary-box h3 { font-size: 14px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .summary-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--gray-800); line-height: 1.6; }
+  .summary-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple); flex-shrink: 0; margin-top: 6px; }
+
+  /* TOC */
+  .toc { background: var(--gray-50); border: 1px solid #E5E7EB; border-radius: 12px; padding: 28px 32px; margin-bottom: 56px; }
+  .toc h3 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .toc ol { padding-left: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; }
+  .toc li { font-size: 14px; padding: 2px 0; }
+  .toc a { color: var(--purple); text-decoration: none; font-weight: 500; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  .section-num { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .section h2 { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 20px; letter-spacing: -0.3px; }
+  .section p { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 16px; }
+  .section ul, .section ol { padding-left: 20px; margin-bottom: 16px; }
+  .section li { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 6px; }
+  .section strong { color: var(--gray-800); font-weight: 600; }
+  .divider { height: 1px; background: #F3F4F6; margin-bottom: 56px; }
+
+  /* INFO CARD */
+  .info-card { background: var(--gray-50); border: 1px solid #E5E7EB; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
+  .info-card h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .info-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin: 0; }
+
+  /* CONTACT BOX */
+  .contact-box {
+    background: var(--navy); border-radius: 16px; padding: 40px;
+    text-align: center; margin-top: 64px;
+  }
+  .contact-box h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+  .contact-box p { font-size: 15px; color: #9CA3AF; margin-bottom: 24px; }
+  .contact-box a { display: inline-block; background: var(--purple); color: #fff; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; }
+
+  /* FOOTER */
+  footer { background: var(--navy); padding: 32px 5%; margin-top: 0; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 13px; color: #4B5563; }
+  .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-legal a { color: #6B7280; text-decoration: none; font-size: 13px; }
+  .footer-legal a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-icon">P</div>
+    <span class="logo-text">Pinpost</span>
+  </a>
+  <div class="nav-right">
+    <a href="/login" class="btn-sm btn-outline">Sign in</a>
+    <a href="/signup" class="btn-sm btn-filled">Start Free</a>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-meta">Last updated: <strong>November 21, 2023</strong> &nbsp;·&nbsp; Effective immediately upon posting</p>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-box">
+    <h3>Key Points Summary</h3>
+    <div class="summary-grid">
+      <div class="summary-item"><div class="dot"></div>We do not sell your personal data to third parties.</div>
+      <div class="summary-item"><div class="dot"></div>We collect only what we need to run Pinpost.</div>
+      <div class="summary-item"><div class="dot"></div>You can request deletion of your data at any time.</div>
+      <div class="summary-item"><div class="dot"></div>We use industry-standard security to protect your data.</div>
+      <div class="summary-item"><div class="dot"></div>We may share data with service providers who help us operate.</div>
+      <div class="summary-item"><div class="dot"></div>Contact us at <strong>policy@pinpost.io</strong> for any privacy questions.</div>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#s1">What information we collect</a></li>
+      <li><a href="#s2">How we use your information</a></li>
+      <li><a href="#s3">When we share your information</a></li>
+      <li><a href="#s4">Cookies and tracking</a></li>
+      <li><a href="#s5">Data retention</a></li>
+      <li><a href="#s6">Your privacy rights</a></li>
+      <li><a href="#s7">Children's privacy</a></li>
+      <li><a href="#s8">Third-party links</a></li>
+      <li><a href="#s9">Changes to this policy</a></li>
+      <li><a href="#s10">Contact us</a></li>
+    </ol>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section">
+    <p>We are <strong>Appents LLC</strong> ("Company", "we", "us", "our"), a company registered in the United States at 455 Market St Ste 1940, San Francisco, California 94105-2448. We operate the website <strong>pinpost.io</strong> and related services (the "Services").</p>
+    <p>This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use Pinpost. By using our Services, you agree to the practices described in this policy. If you have questions, contact us at <strong>policy@pinpost.io</strong>.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S1 -->
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>What information we collect</h2>
+    <p>We collect information you provide directly to us and information collected automatically when you use our Services.</p>
+
+    <div class="info-card">
+      <h4>Information you provide</h4>
+      <p>Name, email address, password, billing information, and any content you upload or create within Pinpost (posts, images, captions, campaign data).</p>
+    </div>
+    <div class="info-card">
+      <h4>Social media account data</h4>
+      <p>When you connect a social media account (Facebook, Instagram, TikTok, YouTube, Google Business, Pinterest), we receive access tokens and account metadata needed to schedule and publish your content.</p>
+    </div>
+    <div class="info-card">
+      <h4>Automatically collected data</h4>
+      <p>IP address, browser type, device information, pages visited, time spent on pages, and referring URLs. We use cookies and similar tracking technologies for this purpose.</p>
+    </div>
+    <div class="info-card">
+      <h4>Payment information</h4>
+      <p>Billing details are processed by our payment provider (Stripe). We do not store full credit card numbers on our servers.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S2 -->
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>How we use your information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Provide, operate, and improve the Pinpost Services</li>
+      <li>Schedule and publish content to your connected social media accounts</li>
+      <li>Process payments and manage your subscription</li>
+      <li>Send transactional emails (receipts, account alerts, password resets)</li>
+      <li>Send product updates and marketing communications (you can opt out at any time)</li>
+      <li>Analyze usage patterns to improve product features</li>
+      <li>Detect and prevent fraud, abuse, and security incidents</li>
+      <li>Comply with our legal obligations</li>
+    </ul>
+    <p>We process your information only when we have a valid legal basis to do so — including your consent, performance of a contract, our legitimate interests, or compliance with law.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S3 -->
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>When we share your information</h2>
+    <p>We do not sell your personal information. We may share your information in the following circumstances:</p>
+    <ul>
+      <li><strong>Service providers:</strong> We share data with trusted vendors who help us operate Pinpost (hosting, payments, analytics, email delivery). They are contractually bound to protect your data.</li>
+      <li><strong>Social media platforms:</strong> We share your content and credentials with the platforms you connect (Meta, TikTok, Google, Pinterest) solely to publish on your behalf.</li>
+      <li><strong>Business transfers:</strong> If Pinpost is acquired or merges with another company, your data may be transferred as part of that transaction.</li>
+      <li><strong>Legal requirements:</strong> We may disclose your information if required by law, court order, or government authority.</li>
+      <li><strong>Protection of rights:</strong> We may share data to protect the rights, property, or safety of Pinpost, our users, or the public.</li>
+    </ul>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S4 -->
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Cookies and tracking</h2>
+    <p>We use cookies and similar technologies to operate our Services, remember your preferences, and understand how you use Pinpost.</p>
+    <ul>
+      <li><strong>Essential cookies:</strong> Required for the platform to function. Cannot be disabled.</li>
+      <li><strong>Analytics cookies:</strong> Help us understand usage and improve the product (e.g. Google Analytics).</li>
+      <li><strong>Marketing cookies:</strong> Used to show relevant ads on third-party platforms (e.g. Meta Pixel). You can opt out via your browser settings or cookie preferences.</li>
+    </ul>
+    <p>You can control cookie settings through your browser. Disabling certain cookies may affect the functionality of Pinpost.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S5 -->
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Data retention</h2>
+    <p>We retain your personal information for as long as your account is active or as needed to provide our Services. When you delete your account, we will delete or anonymize your personal data within <strong>30 days</strong>, except where we are required to retain it for legal or financial compliance purposes.</p>
+    <p>Content you have published to social media platforms through Pinpost remains on those platforms according to their own policies. Pinpost does not control third-party platform data retention.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S6 -->
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Your privacy rights</h2>
+    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+      <li><strong>Correction:</strong> Request that we correct inaccurate or incomplete data.</li>
+      <li><strong>Deletion:</strong> Request deletion of your personal data ("right to be forgotten").</li>
+      <li><strong>Portability:</strong> Request your data in a structured, machine-readable format.</li>
+      <li><strong>Objection:</strong> Object to certain types of processing, including direct marketing.</li>
+      <li><strong>Withdrawal of consent:</strong> Where processing is based on consent, you may withdraw at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, email us at <strong>policy@pinpost.io</strong>. We will respond within <strong>30 days</strong>.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S7 -->
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Children's privacy</h2>
+    <p>Pinpost is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately at <strong>policy@pinpost.io</strong> and we will delete it promptly.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S8 -->
+  <div class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Third-party links</h2>
+    <p>Our Services may contain links to third-party websites and platforms. This Privacy Policy applies only to Pinpost. We are not responsible for the privacy practices of third-party sites. We encourage you to review the privacy policies of any third-party services you use.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S9 -->
+  <div class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make significant changes, we will notify you by email or by displaying a notice within the Pinpost dashboard. The updated policy will be effective immediately upon posting.</p>
+    <p>We encourage you to review this policy periodically. Your continued use of Pinpost after any changes constitutes acceptance of the updated policy.</p>
+  </div>
+  <div class="divider"></div>
+
+  <!-- S10 -->
+  <div class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Contact us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+    <div class="info-card">
+      <h4>Appents LLC — Pinpost</h4>
+      <p>455 Market St Ste 1940, San Francisco, California 94105-2448, United States<br>
+      Email: <strong>policy@pinpost.io</strong><br>
+      Phone: <strong>+1 604 830 6709</strong></p>
+    </div>
+  </div>
+
+  <!-- CONTACT BOX -->
+  <div class="contact-box">
+    <h3>Have a privacy question?</h3>
+    <p>Our team typically responds within 1–2 business days.</p>
+    <a href="mailto:policy@pinpost.io">Email policy@pinpost.io</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Pinpost. An <a href="#" style="color:#9CA3AF;text-decoration:none;">Appents LLC</a> product.</p>
+    <div class="footer-legal">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms & Conditions</a>
+      <a href="/refund">Refund Policy</a>
+      <a href="/deletion">Deletion Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

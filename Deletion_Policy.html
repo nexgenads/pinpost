@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deletion Policy — Pinpost</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #6C3BD5; --purple-light: #F0EAFF; --navy: #1A1035;
+    --gray-50: #F9F8FF; --gray-400: #9CA3AF; --gray-600: #4B5563; --gray-800: #1F2937;
+    --font: 'Inter', sans-serif;
+  }
+  body { font-family: var(--font); color: var(--gray-800); background: #fff; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid #E5E7EB; padding: 0 5%; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-icon { width: 34px; height: 34px; background: var(--purple); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; font-size: 15px; }
+  .logo-text { font-size: 19px; font-weight: 800; color: var(--navy); }
+  .nav-right { display: flex; gap: 12px; }
+  .btn-sm { padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; }
+  .btn-outline { border: 1.5px solid var(--purple); color: var(--purple); }
+  .btn-filled { background: var(--purple); color: #fff; }
+  .page-wrap { max-width: 860px; margin: 0 auto; padding: 64px 24px 120px; }
+  .page-hero { margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid #E5E7EB; }
+  .page-label { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+  .page-title { font-size: 40px; font-weight: 900; color: var(--navy); letter-spacing: -1px; margin-bottom: 16px; }
+  .page-meta { font-size: 14px; color: var(--gray-400); }
+  .page-meta strong { color: var(--gray-600); }
+  .summary-box { background: var(--purple-light); border-left: 4px solid var(--purple); border-radius: 12px; padding: 28px 32px; margin-bottom: 48px; }
+  .summary-box h3 { font-size: 14px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .summary-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--gray-800); line-height: 1.6; }
+  .summary-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple); flex-shrink: 0; margin-top: 6px; }
+  .toc { background: var(--gray-50); border: 1px solid #E5E7EB; border-radius: 12px; padding: 28px 32px; margin-bottom: 56px; }
+  .toc h3 { font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .toc ol { padding-left: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; }
+  .toc li { font-size: 14px; padding: 2px 0; }
+  .toc a { color: var(--purple); text-decoration: none; font-weight: 500; }
+  .toc a:hover { text-decoration: underline; }
+  .section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  .section-num { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .section h2 { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 20px; letter-spacing: -0.3px; }
+  .section p { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 16px; }
+  .section ul { padding-left: 20px; margin-bottom: 16px; }
+  .section li { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 6px; }
+  .section strong { color: var(--gray-800); font-weight: 600; }
+  .divider { height: 1px; background: #F3F4F6; margin-bottom: 56px; }
+  .info-card { background: var(--gray-50); border: 1px solid #E5E7EB; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
+  .info-card h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .info-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin: 0; }
+  .step-card { display: flex; gap: 20px; align-items: flex-start; background: var(--gray-50); border: 1px solid #E5E7EB; border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+  .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--purple); color: white; font-size: 16px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-card h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .step-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin: 0; }
+  .warn-box { background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; gap: 14px; align-items: flex-start; }
+  .warn-box .icon { font-size: 22px; flex-shrink: 0; }
+  .warn-box p { font-size: 14px; color: #92400E; line-height: 1.7; margin: 0; }
+  .contact-box { background: var(--navy); border-radius: 16px; padding: 40px; text-align: center; margin-top: 64px; }
+  .contact-box h3 { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+  .contact-box p { font-size: 15px; color: #9CA3AF; margin-bottom: 24px; }
+  .contact-box a { display: inline-block; background: var(--purple); color: #fff; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; }
+  footer { background: var(--navy); padding: 32px 5%; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 13px; color: #4B5563; }
+  .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-legal a { color: #6B7280; text-decoration: none; font-size: 13px; }
+  .footer-legal a:hover { color: #fff; }
+  .footer-legal a.active { color: #A78BFA; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo"><div class="logo-icon">P</div><span class="logo-text">Pinpost</span></a>
+  <div class="nav-right">
+    <a href="/login" class="btn-sm btn-outline">Sign in</a>
+    <a href="/signup" class="btn-sm btn-filled">Start Free</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-hero">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title">Deletion Policy</h1>
+    <p class="page-meta">Last updated: <strong>November 21, 2023</strong> &nbsp;·&nbsp; Your right to delete your data</p>
+  </div>
+
+  <div class="summary-box">
+    <h3>Key Points Summary</h3>
+    <div class="summary-grid">
+      <div class="summary-item"><div class="dot"></div>You can delete your account and all data at any time.</div>
+      <div class="summary-item"><div class="dot"></div>Data is permanently deleted within 30 days of request.</div>
+      <div class="summary-item"><div class="dot"></div>Deletion is irreversible — it cannot be undone.</div>
+      <div class="summary-item"><div class="dot"></div>Social media posts already published are not deleted.</div>
+      <div class="summary-item"><div class="dot"></div>We retain limited data for legal and financial compliance.</div>
+      <div class="summary-item"><div class="dot"></div>Contact <strong>privacy@pinpost.io</strong> for deletion requests.</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#s1">Your right to deletion</a></li>
+      <li><a href="#s2">What gets deleted</a></li>
+      <li><a href="#s3">What is not deleted</a></li>
+      <li><a href="#s4">How to delete your account</a></li>
+      <li><a href="#s5">Data deletion timeline</a></li>
+      <li><a href="#s6">Facebook data deletion</a></li>
+      <li><a href="#s7">Contact us</a></li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <p>At Pinpost, operated by <strong>Appents LLC</strong>, we respect your right to control your personal data. This Deletion Policy explains what happens when you delete your account, what data is removed, and how you can request deletion.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Your right to deletion</h2>
+    <p>You have the right to delete your Pinpost account and all associated personal data at any time, free of charge, with no questions asked. This right applies regardless of your subscription plan or account status.</p>
+    <p>Deletion requests are processed within <strong>30 days</strong>. Once deletion is complete, your data cannot be recovered.</p>
+    <div class="warn-box">
+      <div class="icon">⚠️</div>
+      <p><strong>Important:</strong> Account deletion is permanent and irreversible. Before deleting, we recommend downloading any content or data you wish to keep. We cannot recover deleted accounts or data after the deletion is processed.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>What gets deleted</h2>
+    <p>When you delete your Pinpost account, the following data is permanently removed from our systems:</p>
+    <ul>
+      <li>Your name, email address, and account credentials</li>
+      <li>All brand profiles and connected social media account tokens</li>
+      <li>All scheduled and drafted posts stored in Pinpost</li>
+      <li>All uploaded media files (images, videos) stored in Pinpost</li>
+      <li>All campaign data and AI campaign plans</li>
+      <li>All analytics data associated with your account</li>
+      <li>All team member records and collaboration data</li>
+      <li>All billing history and payment method references (actual card data is held by Stripe)</li>
+    </ul>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>What is not deleted</h2>
+    <div class="info-card">
+      <h4>Published social media posts</h4>
+      <p>Posts that have already been published to Facebook, Instagram, TikTok, YouTube, Pinterest, or Google Business remain on those platforms. Pinpost does not have the ability to delete content from third-party platforms on your behalf. You must delete those posts directly from each platform.</p>
+    </div>
+    <div class="info-card">
+      <h4>Financial and legal records</h4>
+      <p>We are required by law to retain certain billing and transaction records for up to 7 years for tax and financial compliance purposes. This data is held securely and is not used for any marketing purpose.</p>
+    </div>
+    <div class="info-card">
+      <h4>Anonymized analytics</h4>
+      <p>We may retain anonymized, non-identifiable usage statistics that cannot be linked back to your account. These are used solely to improve our product.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>How to delete your account</h2>
+    <p>You can delete your account in two ways:</p>
+
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div>
+        <h4>From your Pinpost dashboard</h4>
+        <p>Go to <strong>Settings → Account → Delete Account</strong>. Confirm your decision when prompted. Your account will be scheduled for deletion and permanently removed within 30 days.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div>
+        <h4>Via email request</h4>
+        <p>Email us at <strong>privacy@pinpost.io</strong> with the subject line "Account Deletion Request" from the email address associated with your account. We will process your request within 30 days and send you a confirmation email.</p>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Data deletion timeline</h2>
+    <div class="info-card">
+      <h4>Day 0 — Request received</h4>
+      <p>Your account is immediately deactivated. You can no longer log in or use Pinpost. Your subscription is cancelled (if active) with no further charges.</p>
+    </div>
+    <div class="info-card">
+      <h4>Within 7 days</h4>
+      <p>All scheduled posts, campaigns, and media files are removed from our active systems. Connected social media tokens are revoked.</p>
+    </div>
+    <div class="info-card">
+      <h4>Within 30 days</h4>
+      <p>All remaining personal data — including your profile, team records, and analytics — is permanently deleted from our databases and backups. You will receive a confirmation email when deletion is complete.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Facebook data deletion</h2>
+    <p>In compliance with Meta Platform Policy, Pinpost provides a dedicated Facebook Data Deletion callback URL. If you connected your Facebook account to Pinpost and wish to delete all associated data, you can:</p>
+    <ul>
+      <li>Delete your Pinpost account using the steps above, <strong>or</strong></li>
+      <li>Revoke Pinpost's access directly from your Facebook account at <strong>Facebook Settings → Apps and Websites → Pinpost → Remove</strong></li>
+      <li>Email us at <strong>privacy@pinpost.io</strong> with the subject "Facebook Data Deletion Request"</li>
+    </ul>
+    <p>Upon receiving a Facebook data deletion request, we will remove all data associated with your Facebook login within <strong>30 days</strong> and provide a confirmation code for your records.</p>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>Contact us</h2>
+    <p>If you have any questions about data deletion or wish to submit a deletion request, please contact us:</p>
+    <div class="info-card">
+      <h4>Appents LLC — Pinpost</h4>
+      <p>455 Market St Ste 1940, San Francisco, California 94105-2448, United States<br>
+      Email: <strong>privacy@pinpost.io</strong><br>
+      Phone: <strong>+1 604 830 6709</strong></p>
+    </div>
+  </div>
+
+  <div class="contact-box">
+    <h3>Ready to delete your account?</h3>
+    <p>Email us and we will process your request within 30 days.</p>
+    <a href="mailto:privacy@pinpost.io">Email privacy@pinpost.io</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Pinpost. An <a href="#" style="color:#9CA3AF;text-decoration:none;">Appents LLC</a> product.</p>
+    <div class="footer-legal">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms & Conditions</a>
+      <a href="/refund">Refund Policy</a>
+      <a href="/deletion" class="active">Deletion Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
